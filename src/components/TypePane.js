@@ -35,14 +35,12 @@ class TypePane extends Component {
   }
   validateAnswer(){
     // Normally, end a 'word' when user adds the space
-    if (this.state.value === this.props.wordlist[this.props.currentWord] + " "
-        && ! this.isLastWord()){
+    if (this.valueCorrect() && ! this.props.wordkeeper.isLastWord){
       this.setState({value: ""});
       this.props.wordCompletionFunction();
     }
     // On the last word, end when the user finishes the word.
-    else if (this.state.value === this.props.wordlist[this.props.currentWord]
-        && this.isLastWord()){
+    else if (this.valueCorrect() && this.props.wordkeeper.isLastWord){
           this.setState({value: ""});
           this.props.wordCompletionFunction();
     }
@@ -52,8 +50,14 @@ class TypePane extends Component {
       e.preventDefault();
     }
   }
-  isLastWord(){
-    return this.props.currentWord === this.props.wordlist.length -1;
+  valueCorrect(){
+    if (! this.props.wordkeeper.isLastWord){
+      return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord] + " ";
+    }
+    else{
+      return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord];
+    }
   }
 }
+
 export default TypePane;

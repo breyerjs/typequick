@@ -12,8 +12,8 @@ class ViewPane extends Component {
     return(
       <div className="view-pane">
         <div className="view-pane-words">
-          {this.props.wordList.map( (word, index) => {
-            if(index === this.props.currentWord){
+          {this.props.wordkeeper.words.map( (word, index) => {
+            if(index === this.props.wordkeeper.currentWord){
               return (
                 <span key={index} className="currentWord"> {word + " "} </span>
               );

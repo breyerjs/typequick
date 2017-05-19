@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import ViewPane from './ViewPane.js';
 import TypePane from './TypePane.js';
 import StopwatchDisplay from './StopwatchDisplay.js';
+import Scorecard from '../utility/Scorecard.js';
+import Wordkeeper from '../utility/Wordkeeper.js';
 import '../css/App.css';
 
 class BodyLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentWord: 0,
+      wordkeeper: new Wordkeeper(),
       started: false,
       finished: false,
       secondsElapsed: 0,
@@ -19,11 +21,9 @@ class BodyLayout extends Component {
     return (
       <div className="body-layout">
         <ViewPane
-        wordList={this.props.words}
-        currentWord={this.state.currentWord} />
+          wordkeeper={this.state.wordkeeper} />
         <TypePane
-          wordlist={this.props.words}
-          currentWord={this.state.currentWord}
+          wordkeeper={this.state.wordkeeper}
           wordCompletionFunction={this.handleWordCompletion.bind(this)}
           beginTypingFunction={this.beginTyping.bind(this)}
           started={this.state.started}
@@ -35,8 +35,8 @@ class BodyLayout extends Component {
     );
   }
   handleWordCompletion(){
-    this.setState({currentWord: this.state.currentWord + 1});
-    if (this.state.currentWord === this.props.words.length - 1){
+    this.setState({wordkeeper: this.state.wordkeeper.nextWord()});
+    if (this.state.wordkeeper.isFinished){
       this.setState({finished: true})
       clearInterval(this.incrementer);
     }
