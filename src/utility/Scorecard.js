@@ -8,6 +8,17 @@ class Scorecard {
       this.highScore = time;
     }
     this.numGamesPlayed++;
+    return this;
+  }
+  displayHighScore(){
+    if (this.highScore === null){
+      return "None";
+    }
+    return(
+      Math.floor(this.highScore / 60) +
+        ':' +
+      ('0' + this.highScore % 60).slice(-2)
+    );
   }
 }
 

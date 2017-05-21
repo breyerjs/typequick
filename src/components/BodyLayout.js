@@ -4,6 +4,7 @@ import TypePane from './TypePane.js';
 import StopwatchDisplay from './StopwatchDisplay.js';
 import Scorecard from '../utility/Scorecard.js';
 import Wordkeeper from '../utility/Wordkeeper.js';
+import HighScoreDisplay from './HighScoreDisplay.js';
 import '../css/App.css';
 
 class BodyLayout extends Component {
@@ -11,6 +12,7 @@ class BodyLayout extends Component {
     super(props);
     this.state = {
       wordkeeper: new Wordkeeper(),
+      scorecard: new Scorecard(),
       started: false,
       finished: false,
       secondsElapsed: 0,
@@ -31,14 +33,21 @@ class BodyLayout extends Component {
         <StopwatchDisplay
           secondsElapsed={this.state.secondsElapsed}
         />
+        <HighScoreDisplay
+          scorecard={this.state.scorecard}
+        />
       </div>
     );
   }
   handleWordCompletion(){
     this.setState({wordkeeper: this.state.wordkeeper.nextWord()});
     if (this.state.wordkeeper.isFinished){
-      this.setState({finished: true})
+      this.setState({
+        finished: true,
+        scorecard: this.state.scorecard.addNewScore(this.state.secondsElapsed)});
+      console.log(this.state.scorecard.displayHighScore());
       clearInterval(this.incrementer);
+      this.resetGame();
     }
   }
   beginTyping(){
@@ -48,7 +57,14 @@ class BodyLayout extends Component {
         secondsElapsed: this.state.secondsElapsed + 1,
       })
     , 1000);
-
+  }
+  resetGame(){
+    this.setState({
+      started: false,
+      finished: false,
+      secondsElapsed: 0,
+      wordkeeper: this.state.wordkeeper.newGame()
+    });
   }
 }
 

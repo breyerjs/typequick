@@ -51,6 +51,10 @@ light grey: #A6ABB2
   color:red;
 }
 
+.highscore{
+  color: white;
+}
+
 .currentWord{
   color: green;
 }
