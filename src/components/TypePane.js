@@ -28,8 +28,12 @@ class TypePane extends Component {
     );
   }
   handleChange(textbox){
-    if(! this.props.started){
+    if(! this.props.started && ! this.props.countingDown){
       this.props.beginTypingFunction();
+      return;
+    }
+    else if (this.props.countingDown){
+      return;
     }
     this.setState({value: textbox.target.value});
   }

@@ -4,7 +4,7 @@ class Scorecard {
     this.numGamesPlayed = 0;
   }
   addNewScore(time){
-    if (time > this.highScore){
+    if (time < this.highScore || this.highScore === null){
       this.highScore = time;
     }
     this.numGamesPlayed++;

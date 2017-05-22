@@ -55,6 +55,10 @@ light grey: #A6ABB2
   color: white;
 }
 
-.currentWord{
+.start-countdown{
+  color:white;
+}
+
+.current-word{
   color: green;
 }
