@@ -19,7 +19,7 @@ class TypePane extends Component {
             type="text"
             value={this.state.value}
             placeholder="type type type"
-            onKeyDown={this.preventFormEnter}
+            onKeyDown={this.handleKeyDowns.bind(this)}
             onChange={this.handleChange.bind(this)}
             onKeyUp={this.validateAnswer.bind(this)}
           />
@@ -28,8 +28,8 @@ class TypePane extends Component {
     );
   }
   handleChange(textbox){
-    if(! this.props.started && ! this.props.countingDown){
-      this.props.beginTypingFunction();
+    if( ! this.props.started
+        && ! this.props.countingDown){
       return;
     }
     else if (this.props.countingDown){
@@ -49,9 +49,17 @@ class TypePane extends Component {
           this.props.wordCompletionFunction();
     }
   }
-  preventFormEnter(e){
-    if (e.keyCode === 13){
+  handleKeyDowns(e){
+    // Weird bug in react events seems to require preventing default separately.
+    if (e.keyCode === 13 || e.keyCode === 27){
       e.preventDefault();
+    }
+    if (e.keyCode === 13 && ! this.props.started && ! this.props.countingDown){
+      this.props.beginTypingFunction();
+    }
+    if (e.keyCode === 27){
+      this.setState({value: ""});
+      this.props.resetGameFunction();
     }
   }
   valueCorrect(){

@@ -33,6 +33,7 @@ class BodyLayout extends Component {
           wordkeeper={this.state.wordkeeper}
           wordCompletionFunction={this.handleWordCompletion.bind(this)}
           beginTypingFunction={this.beginTyping.bind(this)}
+          resetGameFunction={this.resetGame.bind(this)}
           countingDown={this.state.countingDown}
           started={this.state.started}
           />
@@ -90,6 +91,7 @@ class BodyLayout extends Component {
       startCountdown: 3,
       countingDown: false
     });
+    clearInterval(this.timer);
   }
 }
 
