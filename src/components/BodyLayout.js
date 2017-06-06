@@ -51,7 +51,7 @@ class BodyLayout extends Component {
     if (this.state.wordkeeper.isFinished){
       this.setState({
         finished: true,
-        scorecard: this.state.scorecard.addNewScore(this.state.secondsElapsed)});
+        scorecard: this.state.scorecard.addNewScore(this.state.secondsElapsed, this.state.wordkeeper.words.length)});
       clearInterval(this.timer);
       this.resetGame();
     }

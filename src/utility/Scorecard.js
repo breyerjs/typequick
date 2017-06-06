@@ -2,10 +2,15 @@ class Scorecard {
   constructor(){
     this.highScore = null;
     this.numGamesPlayed = 0;
+    this.allScores = [];
   }
-  addNewScore(time){
-    if (time < this.highScore || this.highScore === null){
-      this.highScore = time;
+  addNewScore(timeInSeconds, numWords){
+    const timeInMins = timeInSeconds / 60;
+    const currentWordsPerMin = numWords / timeInMins;
+    this.allScores.push(currentWordsPerMin);
+
+    if (currentWordsPerMin < this.highScore || this.highScore === null){
+      this.highScore = currentWordsPerMin;
     }
     this.numGamesPlayed++;
     return this;
@@ -14,11 +19,7 @@ class Scorecard {
     if (this.highScore === null){
       return "None";
     }
-    return(
-      Math.floor(this.highScore / 60) +
-        ':' +
-      ('0' + this.highScore % 60).slice(-2)
-    );
+    return Math.floor(this.highScore) + " wpm";
   }
 }
 
