@@ -1,6 +1,8 @@
+import Passages from '../data/passages.json';
+
 class Wordkeeper {
   constructor(){
-    this.words = this.getText();
+    this.words = this.getNewText();
     this.currentWord = 0;
     this.isLastWord = false;
     this.isFinished = false;
@@ -18,15 +20,16 @@ class Wordkeeper {
     return this;
   }
   newGame(){
-    this.words = this.getText();
+    this.words = this.getNewText();
     this.currentWord = 0;
     this.isLastWord = false;
     this.isFinished = false;
     this.currentWordString = this.words[this.currentWord];
     return this;
   }
-  getText(){
-    return "These are the words".split(" ");
+  getNewText(){
+    var randomItem = Passages.quotes[Math.floor(Math.random()*Passages.quotes.length)];
+    return randomItem.split(" ");
   }
 }
 
