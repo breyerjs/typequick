@@ -28,8 +28,11 @@ class Wordkeeper {
     return this;
   }
   getNewText(){
-    var randomItem = Passages.quotes[Math.floor(Math.random()*Passages.quotes.length)];
-    return randomItem.split(" ");
+    var newText = null;
+    while (newText === null || newText === this.words){
+      newText = Passages.quotes[Math.floor(Math.random()*Passages.quotes.length)];
+    }
+    return newText.split(" ");
   }
 }
 
