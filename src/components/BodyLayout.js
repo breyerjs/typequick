@@ -34,12 +34,14 @@ class BodyLayout extends Component {
           resetGameFunction={this.resetGame.bind(this)}
           countingDown={this.state.countingDown}
           started={this.state.started}
+          finished={this.state.finished}
           />
         <MessageBox
           countdown={this.state.startCountdown}
           countingDown={this.state.countingDown}
           started={this.state.started}
           finished={this.state.finished}
+          mostRecentScore={this.state.scorecard.getMostRecentScore()}
         />
         <StopwatchDisplay
           secondsElapsed={this.state.secondsElapsed}
@@ -57,7 +59,6 @@ class BodyLayout extends Component {
         finished: true,
         scorecard: this.state.scorecard.addNewScore(this.state.secondsElapsed, this.state.wordkeeper.words.length)});
       clearInterval(this.timer);
-      this.resetGame();
     }
   }
   beginTyping(){

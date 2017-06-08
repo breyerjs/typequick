@@ -21,6 +21,9 @@ class Scorecard {
     }
     return Math.floor(this.highScore) + " wpm";
   }
+  getMostRecentScore(){
+    return this.allScores[this.allScores.length - 1];
+  }
 }
 
 export default Scorecard;

@@ -61,6 +61,10 @@ class TypePane extends Component {
       this.setState({value: ""});
       this.props.resetGameFunction();
     }
+    if (e.keyCode === 13 && this.props.finished){
+      this.setState({value: ""});
+      this.props.resetGameFunction();
+    }
   }
   valueCorrect(){
     if (! this.props.wordkeeper.isLastWord){
