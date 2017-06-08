@@ -9,7 +9,7 @@ class ViewPane extends Component {
     };
   }
   render(){
-    return(
+    return( 
       <div className="view-pane">
         <div className="view-pane-words">
           {this.props.wordkeeper.words.map( (word, index) => {

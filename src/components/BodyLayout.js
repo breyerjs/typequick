@@ -5,6 +5,7 @@ import StopwatchDisplay from './StopwatchDisplay.js';
 import Scorecard from '../utility/Scorecard.js';
 import Wordkeeper from '../utility/Wordkeeper.js';
 import HighScoreDisplay from './HighScoreDisplay.js';
+import MessageBox from './MessageBox.js';
 import '../css/App.css';
 
 class BodyLayout extends Component {
@@ -16,7 +17,7 @@ class BodyLayout extends Component {
       started: false,
       finished: false,
       secondsElapsed: 0,
-      startCountdown: 3,
+      startCountdown: 4,
       countingDown: false
     };
     this.timer = null;
@@ -24,9 +25,6 @@ class BodyLayout extends Component {
   render() {
     return (
       <div className="body-layout">
-        <div className="start-countdown">
-          {this.state.startCountdown}
-        </div>
         <ViewPane
           wordkeeper={this.state.wordkeeper} />
         <TypePane
@@ -37,6 +35,12 @@ class BodyLayout extends Component {
           countingDown={this.state.countingDown}
           started={this.state.started}
           />
+        <MessageBox
+          countdown={this.state.startCountdown}
+          countingDown={this.state.countingDown}
+          started={this.state.started}
+          finished={this.state.finished}
+        />
         <StopwatchDisplay
           secondsElapsed={this.state.secondsElapsed}
         />
@@ -57,7 +61,7 @@ class BodyLayout extends Component {
     }
   }
   beginTyping(){
-    var timeLeft = 3;
+    var timeLeft = 4;
     var countdown = setInterval(function() {
       timeLeft--;
       if(timeLeft === 0) {
@@ -88,7 +92,7 @@ class BodyLayout extends Component {
       finished: false,
       secondsElapsed: 0,
       wordkeeper: this.state.wordkeeper.newGame(),
-      startCountdown: 3,
+      startCountdown: 4,
       countingDown: false
     });
     clearInterval(this.timer);

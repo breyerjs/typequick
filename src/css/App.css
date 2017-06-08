@@ -46,6 +46,13 @@ light grey: #A6ABB2
   font-size: 36px;
 }
 
+.message-box{
+  color:yellow;
+  text-align: center;
+  margin: auto;
+  width: 300px;
+}
+
 .watchface{
   margin: auto;
   color:red;
@@ -53,10 +60,6 @@ light grey: #A6ABB2
 
 .highscore{
   color: white;
-}
-
-.start-countdown{
-  color:white;
 }
 
 .current-word{

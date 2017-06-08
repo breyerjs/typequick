@@ -6,6 +6,7 @@ const formattedSeconds = (sec) =>
     ':' +
   ('0' + sec % 60).slice(-2)
 
+// see https://www.npmjs.com/package/timer-stopwatch
 // For this exact one see: https://codepen.io/seoh/pen/PPZYQy
 
 class StopwatchDisplay extends Component {
