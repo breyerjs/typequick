@@ -2,31 +2,28 @@ import React, { Component } from 'react';
 import '../css/App.css';
 
 class ViewPane extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentWord: 0
-    };
-  }
+
   render(){
-    return( 
+    return(
       <div className="view-pane">
         <div className="view-pane-words">
-          {this.props.wordkeeper.words.map( (word, index) => {
-            if(index === this.props.wordkeeper.currentWord){
-              return (
-                <span key={index} className="current-word"> {word + " "} </span>
-              );
-            }
-            else{
-              return(
-                <span key={index}>{word + " "}</span>
-              );
-            }
-          })}
+          {this.renderWords()}
         </div>
       </div>
     );
+  }
+  renderWords(){
+    var beforeCurrentWordText = "";
+    var currentWordText = "";
+    var afterCurrentWordText = "";
+
+    beforeCurrentWordText = <span key={0}>{this.props.wordkeeper.words.slice(0, this.props.wordkeeper.currentWord).join(" ")}</span>;
+
+    currentWordText = <span key={1} className="current-word"> {this.props.wordkeeper.words[this.props.wordkeeper.currentWord]}</span>;
+
+    afterCurrentWordText = <span key={2}>{this.props.wordkeeper.words.slice(this.props.wordkeeper.currentWord+1).join(" ").trim()}</span>;
+
+    return [beforeCurrentWordText, currentWordText, afterCurrentWordText];
   }
 }
 

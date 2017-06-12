@@ -6,7 +6,7 @@ class Scorecard {
   }
   addNewScore(timeInSeconds, numWords){
     const timeInMins = timeInSeconds / 60;
-    const currentWordsPerMin = numWords / timeInMins;
+    const currentWordsPerMin = Math.floor(numWords / timeInMins);
     this.allScores.push(currentWordsPerMin);
 
     if (currentWordsPerMin < this.highScore || this.highScore === null){
@@ -19,7 +19,7 @@ class Scorecard {
     if (this.highScore === null){
       return "None";
     }
-    return Math.floor(this.highScore) + " wpm";
+    return this.highScore + " wpm";
   }
   getMostRecentScore(){
     return this.allScores[this.allScores.length - 1];
