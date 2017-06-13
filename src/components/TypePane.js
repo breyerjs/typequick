@@ -20,8 +20,7 @@ class TypePane extends Component {
             value={this.state.value}
             placeholder="type type type"
             onKeyDown={this.handleKeyDowns.bind(this)}
-            onChange={this.handleChange.bind(this)}
-            onKeyUp={this.validateAnswer.bind(this)}
+            onInput={this.handleChange.bind(this)}
           />
         </FormGroup>
       </form>
@@ -35,19 +34,14 @@ class TypePane extends Component {
     else if (this.props.countingDown){
       return;
     }
-    this.setState({value: textbox.target.value});
-  }
-  validateAnswer(){
-    // Normally, end a 'word' when user adds the space
-    if (this.valueCorrect() && ! this.props.wordkeeper.isLastWord){
-      this.setState({value: ""});
-      this.props.wordCompletionFunction();
-    }
-    // On the last word, end when the user finishes the word.
-    else if (this.valueCorrect() && this.props.wordkeeper.isLastWord){
-          this.setState({value: ""});
-          this.props.wordCompletionFunction();
-    }
+    // using a callback here prevents a race condition when checking the answer
+    this.setState({value: textbox.target.value}, () => {
+      if (this.valueCorrect()){
+        this.setState({value: ""});
+        this.props.wordCompletionFunction();
+      }
+    });
+
   }
   handleKeyDowns(e){
     // Weird bug in react events seems to require preventing default separately.
@@ -67,9 +61,11 @@ class TypePane extends Component {
     }
   }
   valueCorrect(){
+    // Normally, end a 'word' when user adds the space
     if (! this.props.wordkeeper.isLastWord){
       return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord] + " ";
     }
+    // On the last word, end when the user finishes the word.
     else{
       return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord];
     }

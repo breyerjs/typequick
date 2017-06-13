@@ -29,13 +29,15 @@ light grey: #A6ABB2
   margin: auto;
   height: 250px;
   width: 700px;
-  background-color: #66737D;
+  /*background-color: #66737D;*/
+  background-color: black;
 }
 
 .view-pane-words{
   padding: 40px;
   font-size: 18px;
-  color: #A6ABB2;
+  /*color: #A6ABB2;*/
+  color: white;
 }
 
 .type-pane{
