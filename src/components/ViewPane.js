@@ -19,9 +19,12 @@ class ViewPane extends Component {
 
     beforeCurrentWordText = <span key={0}>{this.props.wordkeeper.words.slice(0, this.props.wordkeeper.currentWord).join(" ")}</span>;
 
-    currentWordText = <span key={1} className="current-word"> {this.props.wordkeeper.words[this.props.wordkeeper.currentWord] + " "}</span>;
+    currentWordText = this.props.wordkeeper.isFinished ?
+      "" :
+      <span key={1} className="current-word"> {this.props.wordkeeper.words[this.props.wordkeeper.currentWord] + " "}</span>;
 
-    afterCurrentWordText = <span key={2}>{this.props.wordkeeper.words.slice(this.props.wordkeeper.currentWord+1).join(" ").trim()}</span>;
+
+    afterCurrentWordText = <span key={2}> {this.props.wordkeeper.words.slice(this.props.wordkeeper.currentWord+1).join(" ").trim()}</span>;
 
     return [beforeCurrentWordText, currentWordText, afterCurrentWordText];
   }
