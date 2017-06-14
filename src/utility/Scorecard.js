@@ -9,7 +9,7 @@ class Scorecard {
     const currentWordsPerMin = Math.floor(numWords / timeInMins);
     this.allScores.push(currentWordsPerMin);
 
-    if (currentWordsPerMin < this.highScore || this.highScore === null){
+    if (currentWordsPerMin > this.highScore || this.highScore === null){
       this.highScore = currentWordsPerMin;
     }
     this.numGamesPlayed++;
