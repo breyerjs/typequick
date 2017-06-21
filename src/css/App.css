@@ -38,7 +38,11 @@ light grey: #A6ABB2
   padding: 40px;
   font-size: 18px;
   /*color: #A6ABB2;*/
-  color: white;
+  color: #ECEFF4;
+}
+
+.current-word{
+  color: #A3BE8C;
 }
 
 .type-pane{
@@ -79,9 +83,4 @@ light grey: #A6ABB2
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   color: white;
-}
-
-.current-word{
-  color: green;
-
 }
