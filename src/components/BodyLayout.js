@@ -17,7 +17,7 @@ class BodyLayout extends Component {
       started: false,
       finished: false,
       secondsElapsed: 0,
-      startCountdown: 4,
+      countDownTime: 4,
       countingDown: false
     };
     this.timer = null;
@@ -29,15 +29,16 @@ class BodyLayout extends Component {
           wordkeeper={this.state.wordkeeper} />
         <TypePane
           wordkeeper={this.state.wordkeeper}
+          started={this.state.started}
+          finished={this.state.finished}
+          countingDown={this.state.countingDown}
+          countDownTime={this.state.countDownTime}
           wordCompletionFunction={this.handleWordCompletion.bind(this)}
           beginTypingFunction={this.beginTyping.bind(this)}
           resetGameFunction={this.resetGame.bind(this)}
-          countingDown={this.state.countingDown}
-          started={this.state.started}
-          finished={this.state.finished}
           />
         <MessageBox
-          countdown={this.state.startCountdown}
+          countdown={this.state.countDownTime}
           countingDown={this.state.countingDown}
           started={this.state.started}
           finished={this.state.finished}
@@ -68,13 +69,13 @@ class BodyLayout extends Component {
       if(timeLeft === 0) {
         this.setState({
           started: true,
-          startCountdown: timeLeft,
+          countDownTime: timeLeft,
           countingDown: false});
           clearInterval(countdown);
           this.startTimer();
       } else {
           this.setState({
-            startCountdown: timeLeft,
+            countDownTime: timeLeft,
             countingDown: true});
       }
     }.bind(this), 1000);
@@ -93,7 +94,7 @@ class BodyLayout extends Component {
       finished: false,
       secondsElapsed: 0,
       wordkeeper: this.state.wordkeeper.newGame(),
-      startCountdown: 4,
+      countDownTime: 4,
       countingDown: false
     });
     clearInterval(this.timer);

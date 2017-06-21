@@ -18,7 +18,7 @@ class TypePane extends Component {
             className="type-pane"
             type="text"
             value={this.state.value}
-            placeholder="type type type"
+            placeholder={this.getPlaceHolderText()}
             onKeyDown={this.handleKeyDowns.bind(this)}
             onInput={this.handleChange.bind(this)}
           />
@@ -68,6 +68,20 @@ class TypePane extends Component {
     // On the last word, end when the user finishes the word.
     else{
       return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord];
+    }
+  }
+  getPlaceHolderText(){
+    if(this.props.countingDown){
+      return this.props.countDownTime;
+    }
+    else if (! this.props.started){
+      return "Press Enter";
+    }
+    else if (this.props.finished){
+      return "Press Enter"
+    }
+    else{
+      return ""
     }
   }
 }
