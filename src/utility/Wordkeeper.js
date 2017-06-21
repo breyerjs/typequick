@@ -29,10 +29,10 @@ class Wordkeeper {
   }
   getNewText(){
     var newText = null;
-    while (newText === null || newText === this.words){
+    while (newText === null || newText.quote.split(" ") === this.words){
       newText = Passages.quotes[Math.floor(Math.random()*Passages.quotes.length)];
     }
-    return newText.split(" ");
+    return newText.quote.split(" ");
   }
 }
 
