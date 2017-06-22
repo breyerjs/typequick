@@ -51,7 +51,7 @@ class TypePane extends Component {
     if (e.keyCode === 13 && ! this.props.started && ! this.props.countingDown){
       this.props.beginTypingFunction();
     }
-    if (e.keyCode === 27){
+    if (e.keyCode === 27 && ! this.props.countingDown){
       this.setState({value: ""});
       this.props.resetGameFunction();
     }

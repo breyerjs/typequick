@@ -17,7 +17,7 @@ class BodyLayout extends Component {
       started: false,
       finished: false,
       secondsElapsed: 0,
-      countDownTime: 4,
+      countDownTime: 3,
       countingDown: false
     };
     this.timer = null;
@@ -63,7 +63,8 @@ class BodyLayout extends Component {
     }
   }
   beginTyping(){
-    var timeLeft = 4;
+    var timeLeft = this.state.countDownTime;
+    this.setState({countingDown: true})
     var countdown = setInterval(function() {
       timeLeft--;
       if(timeLeft === 0) {
@@ -74,9 +75,7 @@ class BodyLayout extends Component {
           clearInterval(countdown);
           this.startTimer();
       } else {
-          this.setState({
-            countDownTime: timeLeft,
-            countingDown: true});
+          this.setState({countDownTime: timeLeft});
       }
     }.bind(this), 1000);
   }
@@ -94,7 +93,7 @@ class BodyLayout extends Component {
       finished: false,
       secondsElapsed: 0,
       wordkeeper: this.state.wordkeeper.newGame(),
-      countDownTime: 4,
+      countDownTime: 3,
       countingDown: false
     });
     clearInterval(this.timer);
