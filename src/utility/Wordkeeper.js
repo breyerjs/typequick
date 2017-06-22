@@ -29,7 +29,7 @@ class Wordkeeper {
   }
   getNewText(){
     var newText = null;
-    while (newText === null || newText.quote.split(" ") === this.words){
+    while (newText === null || JSON.stringify(newText.quote.split(" ")) === JSON.stringify(this.words)){
       newText = Passages.quotes[Math.floor(Math.random()*Passages.quotes.length)];
     }
     return newText.quote.split(" ");
