@@ -6,10 +6,13 @@ import '../css/App.css';
 class HighScoreDisplay extends Component {
   render() {
     return (
-      <div className="highscore">
-        High Score: {this.props.scorecard.displayHighScore()}
-        <br />
-        Games Played: {this.props.scorecard.numGamesPlayed}
+      <div>
+        <div className="highscore">
+          High Score: {this.props.scorecard.displayHighScore()}
+        </div>
+        <div className="games-played">
+          Games Played: {this.props.scorecard.numGamesPlayed}
+        </div>
       </div>
     );
   }

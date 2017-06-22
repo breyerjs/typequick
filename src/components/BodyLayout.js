@@ -44,12 +44,14 @@ class BodyLayout extends Component {
           finished={this.state.finished}
           mostRecentScore={this.state.scorecard.getMostRecentScore()}
         />
-        <StopwatchDisplay
-          secondsElapsed={this.state.secondsElapsed}
-        />
-        <HighScoreDisplay
-          scorecard={this.state.scorecard}
-        />
+        <div>
+          <StopwatchDisplay
+            secondsElapsed={this.state.secondsElapsed}
+          />
+          <HighScoreDisplay
+            scorecard={this.state.scorecard}
+          />
+        </div>
       </div>
     );
   }

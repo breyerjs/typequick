@@ -1,30 +1,25 @@
 /*
 Colors:
-Blackish: #313E50
-Blue: #3A435E
-slate: #66737D
-grey: #868996
-light grey: #A6ABB2
+BKG Blue: 3B4252
+Text Input Box: ECEFF4
+Dark Text: 3B4252
+Red Text: BF616A
+Green Text: A3BE8C
+Quote Text: ECEFF4
+Text Input Font: Nunito Regular 60px
+Quote Font: Nunito Regular 28 px
+High Score/Games Played Font: Nunito Light 12 px
 */
 
-.header{
-  background: #3A435E;
-  color: #868996;
-  height: 130px;
-  font-family: 'Nunito', sans-serif;
-  text-align: center;
-}
-
-.header-text{
-  font-size: 36px;
-  padding: 50px;
-  margin-bottom: 50px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #3B4252;
 }
 
 .body-layout{
-  background-color: #3B4252;
   font-family: 'Nunito', sans-serif;
-  height: 800px;
 }
 
 .view-pane{
@@ -75,12 +70,20 @@ light grey: #A6ABB2
 }
 
 .watchface{
-  margin: auto;
   color: #BF616A;
+  text-align: center;
 }
 
 .highscore{
   font-family: 'Nunito', sans-serif;
   font-weight: 200;
   color: white;
+  text-align: right;
+}
+
+.games-played{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  color: white;
+  text-align: left;
 }
