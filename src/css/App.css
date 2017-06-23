@@ -36,8 +36,12 @@ body {
   color: #ECEFF4;
 }
 
-.current-word{
+.current-word-correct{
   color: #A3BE8C;
+}
+
+.current-word-incorrect{
+  color: #BF616A;
 }
 
 .type-pane{
@@ -76,14 +80,18 @@ body {
 
 .highscore{
   font-family: 'Nunito', sans-serif;
-  font-weight: 200;
+  font-weight: 100;
   color: white;
   text-align: right;
+  padding: 20px;
+  display: inline-block;
 }
 
 .games-played{
   font-family: 'Nunito', sans-serif;
-  font-weight: 200;
+  font-weight: 100;
   color: white;
   text-align: left;
+  padding: 20px;
+  display: inline-block;
 }

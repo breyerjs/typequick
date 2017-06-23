@@ -18,7 +18,8 @@ class BodyLayout extends Component {
       finished: false,
       secondsElapsed: 0,
       countDownTime: 3,
-      countingDown: false
+      countingDown: false,
+      correctSoFar: true
     };
     this.timer = null;
   }
@@ -26,7 +27,8 @@ class BodyLayout extends Component {
     return (
       <div className="body-layout">
         <ViewPane
-          wordkeeper={this.state.wordkeeper} />
+          wordkeeper={this.state.wordkeeper}
+          correctSoFar={this.state.correctSoFar} />
         <TypePane
           wordkeeper={this.state.wordkeeper}
           started={this.state.started}
@@ -36,6 +38,7 @@ class BodyLayout extends Component {
           wordCompletionFunction={this.handleWordCompletion.bind(this)}
           beginTypingFunction={this.beginTyping.bind(this)}
           resetGameFunction={this.resetGame.bind(this)}
+          correctSoFarFunction={this.correctSoFarFunction.bind(this)}
           />
         <MessageBox
           countdown={this.state.countDownTime}
@@ -99,6 +102,9 @@ class BodyLayout extends Component {
       countingDown: false
     });
     clearInterval(this.timer);
+  }
+  correctSoFarFunction(isWordCorrect){
+    this.setState({correctSoFar: isWordCorrect});
   }
 }
 

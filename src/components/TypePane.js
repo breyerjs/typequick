@@ -36,9 +36,11 @@ class TypePane extends Component {
     }
     // using a callback here prevents a race condition when checking the answer
     this.setState({value: textbox.target.value}, () => {
-      if (this.valueCorrect()){
+      if (this.wordFinishedCorrectly()){
         this.setState({value: ""});
         this.props.wordCompletionFunction();
+      }else{
+        this.checkCurrentWordCorrectSoFar()
       }
     });
 
@@ -60,7 +62,7 @@ class TypePane extends Component {
       this.props.resetGameFunction();
     }
   }
-  valueCorrect(){
+  wordFinishedCorrectly(){
     // Normally, end a 'word' when user adds the space
     if (! this.props.wordkeeper.isLastWord){
       return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord] + " ";
@@ -69,6 +71,12 @@ class TypePane extends Component {
     else{
       return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord];
     }
+  }
+  checkCurrentWordCorrectSoFar(){
+    const correct = (
+      this.props.wordkeeper.currentWordString.startsWith(this.state.value)
+      || this.state.value === "");
+    this.props.correctSoFarFunction(correct)
   }
   getPlaceHolderText(){
     if(this.props.countingDown){
