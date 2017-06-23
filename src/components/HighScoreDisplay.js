@@ -7,12 +7,12 @@ class HighScoreDisplay extends Component {
   render() {
     return (
       <div>
-        <div className="highscore">
+        <span className="highscore">
           High Score: {this.props.scorecard.displayHighScore()}
-        </div>
-        <div className="games-played">
+        </span>
+        <span className="games-played">
           Games Played: {this.props.scorecard.numGamesPlayed}
-        </div>
+        </span>
       </div>
     );
   }
