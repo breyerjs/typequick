@@ -9,6 +9,7 @@ class ViewPane extends Component {
         <div className="view-pane-words">
           {this.renderWords()}
         </div>
+        <div className="view-pane-author">{this.props.wordkeeper.author}</div>
       </div>
     );
   }

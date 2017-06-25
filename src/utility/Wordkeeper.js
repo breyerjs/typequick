@@ -32,6 +32,7 @@ class Wordkeeper {
     while (newText === null || JSON.stringify(newText.quote.split(" ")) === JSON.stringify(this.words)){
       newText = Passages.quotes[Math.floor(Math.random()*Passages.quotes.length)];
     }
+    this.author = newText.author;
     return newText.quote.split(" ");
   }
 }

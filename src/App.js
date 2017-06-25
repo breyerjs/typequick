@@ -5,7 +5,17 @@ import './css/App.css';
 class App extends Component {
   render() {
     return (
-      <BodyLayout />
+      <div>
+        <div className="head-space">
+          Icon goes here
+        </div>
+        <span className="body-layout">
+          <BodyLayout />
+        </span>
+        <span className="ad-goes-here">
+          ad
+        </span>
+      </div>
     );
   }
 }

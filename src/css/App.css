@@ -16,26 +16,46 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-color: #3B4252;
+  font-family: 'Nunito', sans-serif;
+}
+
+.head-space{
+  height: 100px;
+  color: white;
+}
+
+.ad-goes-here{
+  background-color: black;
+  height: 500px;
+  display: inline-block;
+  width: 15%;
 }
 
 .body-layout{
-  font-family: 'Nunito', sans-serif;
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  width: 75%;
+  float: left;
 }
 
 .view-pane{
   margin: auto;
-  margin-top: 100px;
-  height:auto;
+  height: auto;
   width: 700px;
-  min-height: 250px;
-  /*background-color: #66737D;*/
+  min-height: 150px;
 }
 
 .view-pane-words{
-  padding: 40px;
   font-size: 18px;
-  /*color: #A6ABB2;*/
   color: #ECEFF4;
+}
+
+.view-pane-author{
+  text-align: right;
+  color: #ECEFF4;
+  margin-top: 30px;
 }
 
 .current-word-correct{
@@ -49,23 +69,23 @@ body {
 .type-pane{
   margin: auto;
   margin-top: 50px;
-  width: 300px;
-  height: 100px;
+  height: 70px;
+  width: 55%;
   font-size: 36px;
-  background-color: #ECEFF4;
+  background-color: #E6E6E6;
   color: #3B4252;
 }
 .type-pane::-webkit-input-placeholder {
-     text-align: center;
+  text-align: center;
 }
 .type-pane:-moz-placeholder { /* Firefox 18- */
-     text-align: center;
+  text-align: center;
 }
 .type-pane::-moz-placeholder {  /* Firefox 19+ */
-     text-align: center;
+  text-align: center;
 }
 .type-pane:-ms-input-placeholder {
-     text-align: center;
+  text-align: center;
 }
 
 .message-box{

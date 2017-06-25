@@ -83,10 +83,10 @@ class TypePane extends Component {
       return this.props.countDownTime;
     }
     else if (! this.props.started){
-      return "Press Enter";
+      return "Press Enter to Start";
     }
     else if (this.props.finished){
-      return "Press Enter"
+      return "Press Enter to Restart"
     }
     else{
       return ""
