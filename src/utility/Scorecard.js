@@ -24,6 +24,11 @@ class Scorecard {
   getMostRecentScore(){
     return this.allScores[this.allScores.length - 1];
   }
+  getAverageScore(){
+    if (this.numGamesPlayed === 0) return 0;
+    const sum = this.allScores.reduce((total, num) => {return total + num;});
+    return sum / this.numGamesPlayed;
+  }
 }
 
 export default Scorecard;
