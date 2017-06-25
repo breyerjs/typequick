@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import BodyLayout from './components/BodyLayout.js';
 import './css/App.css';
+import Logo from './images/icon_90.png';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <div className="head-space">
-          Icon goes here
+        <div className="logo-space">
+          <img src={Logo} alt={"logo"} />
         </div>
-        <span className="body-layout">
+        <div className="body-layout">
           <BodyLayout />
-        </span>
-        <span className="ad-goes-here">
+        </div>
+        <div className="ad-goes-here">
           ad
-        </span>
+        </div>
       </div>
     );
   }
