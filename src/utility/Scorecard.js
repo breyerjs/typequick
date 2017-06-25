@@ -22,6 +22,7 @@ class Scorecard {
     return this.highScore + " wpm";
   }
   getMostRecentScore(){
+    if (this.allScores.length === 0) return null;
     return this.allScores[this.allScores.length - 1];
   }
   getAverageScore(){

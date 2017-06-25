@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ViewPane from './ViewPane.js';
 import TypePane from './TypePane.js';
-import StopwatchDisplay from './StopwatchDisplay.js';
 import Scorecard from '../utility/Scorecard.js';
 import Wordkeeper from '../utility/Wordkeeper.js';
-import HighScoreDisplay from './HighScoreDisplay.js';
-import MessageBox from './MessageBox.js';
+import StatsDisplay from './StatsDisplay.js';
+import RecentScore from './RecentScore.js';
 import '../css/App.css';
 
 class BodyLayout extends Component {
@@ -40,19 +39,14 @@ class BodyLayout extends Component {
           resetGameFunction={this.resetGame.bind(this)}
           correctSoFarFunction={this.correctSoFarFunction.bind(this)}
           />
-        <MessageBox
-          countdown={this.state.countDownTime}
-          countingDown={this.state.countingDown}
-          started={this.state.started}
+        <RecentScore
+          scorecard={this.state.scorecard}
           finished={this.state.finished}
-          mostRecentScore={this.state.scorecard.getMostRecentScore()}
         />
         <div>
-          <StopwatchDisplay
-            secondsElapsed={this.state.secondsElapsed}
-          />
-          <HighScoreDisplay
+          <StatsDisplay
             scorecard={this.state.scorecard}
+            secondsElapsed={this.state.secondsElapsed}
           />
         </div>
       </div>

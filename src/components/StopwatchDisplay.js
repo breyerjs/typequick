@@ -12,9 +12,7 @@ const formattedSeconds = (sec) =>
 class StopwatchDisplay extends Component {
   render() {
     return (
-      <div className="watchface">
-        {formattedSeconds(this.props.secondsElapsed)}
-      </div>
+        <span>{formattedSeconds(this.props.secondsElapsed)}</span>
     );
   }
 }

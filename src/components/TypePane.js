@@ -11,6 +11,7 @@ class TypePane extends Component {
   }
   render() {
     return (
+      <div>
       <form>
         <FormGroup>
           <FormControl
@@ -24,6 +25,8 @@ class TypePane extends Component {
           />
         </FormGroup>
       </form>
+      <div className="esc-to-skip">esc to skip</div>
+      </div>
     );
   }
   handleChange(textbox){
