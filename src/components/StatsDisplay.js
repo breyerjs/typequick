@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import StopwatchDisplay from './StopwatchDisplay.js';
+import HighScoreDisplay from './HighScoreDisplay.js';
+import AverageScoreDisplay from './AverageScoreDisplay.js';
 import '../css/App.css';
 
 class StatsDisplay extends Component {
@@ -7,15 +9,19 @@ class StatsDisplay extends Component {
     return (
       <div className="stats-display">
         <span className="highscore">
-          High Score: {this.props.scorecard.displayHighScore()}
+          <HighScoreDisplay
+            scorecard={this.props.scorecard}
+          />
         </span>
         <span className="watchface">
-        <StopwatchDisplay
-          secondsElapsed={this.props.secondsElapsed}
-        />
+          <StopwatchDisplay
+            secondsElapsed={this.props.secondsElapsed}
+          />
         </span>
         <span className="average-score">
-          Average Score: {this.props.scorecard.getAverageScore()}
+          <AverageScoreDisplay
+            scorecard={this.props.scorecard}
+          />
         </span>
       </div>
     );

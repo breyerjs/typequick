@@ -15,7 +15,7 @@ class Scorecard {
     this.numGamesPlayed++;
     return this;
   }
-  displayHighScore(){
+  getHighScore(){
     if (this.highScore === null){
       return "None";
     }

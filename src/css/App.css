@@ -34,7 +34,7 @@ body {
   display: inline-block;
   width: 200px;
   float: right;
-  margin-right: 35px;
+  margin-right: 60px;
 }
 
 .body-layout{
@@ -132,4 +132,8 @@ body {
   text-align: right;
   display: inline-block;
   width: 33%;
+}
+
+.stat-item{
+  text-align: center;
 }
