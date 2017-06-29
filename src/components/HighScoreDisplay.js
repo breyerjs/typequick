@@ -8,7 +8,7 @@ class HisghScoreDisplay extends Component {
       <div className="stat-item">
         {"High Score"}
         <br />
-        <img src={HighScoreImage} alt={"image"} />
+        <img src={HighScoreImage} alt={"highscoreimage"} />
         <br />
         {this.props.scorecard.getHighScore()}
       </div>

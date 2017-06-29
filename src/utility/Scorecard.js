@@ -26,9 +26,9 @@ class Scorecard {
     return this.allScores[this.allScores.length - 1];
   }
   getAverageScore(){
-    if (this.numGamesPlayed === 0) return 0;
+    if (this.numGamesPlayed === 0) return "None";
     const sum = this.allScores.reduce((total, num) => {return total + num;});
-    return sum / this.numGamesPlayed;
+    return (sum / this.numGamesPlayed) + " wpm";
   }
 }
 

@@ -17,7 +17,7 @@ class StopwatchDisplay extends Component {
       <div>
         {"Time"}
         <br />
-        <img src={TimeImage} alt={"image"} />
+        <img src={TimeImage} alt={"stopwatchimage"} />
         <br />
         <span>{formattedSeconds(this.props.secondsElapsed)}</span>
       </div>

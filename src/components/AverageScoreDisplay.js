@@ -8,7 +8,7 @@ class AverageScoreDisplay extends Component {
       <div className="stat-item">
         {"Average Score"}
         <br />
-        <img src={AvgScoreImage} alt={"image"} />
+        <img src={AvgScoreImage} alt={"avgscoreimage"} />
         <br />
         {this.props.scorecard.getAverageScore()}
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BodyLayout from './components/BodyLayout.js';
 import './css/App.css';
-import Logo from './images/icon_90.png';
+import Logo from './images/logo.png';
 
 class App extends Component {
   render() {
