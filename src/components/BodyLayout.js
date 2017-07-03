@@ -37,7 +37,7 @@ class BodyLayout extends Component {
           wordCompletionFunction={this.handleWordCompletion.bind(this)}
           beginTypingFunction={this.beginTyping.bind(this)}
           resetGameFunction={this.resetGame.bind(this)}
-          correctSoFarFunction={this.correctSoFarFunction.bind(this)}
+          reportCorrectnessFunction={this.reportCorrectnessFunction.bind(this)}
           />
         <RecentScore
           scorecard={this.state.scorecard}
@@ -97,7 +97,7 @@ class BodyLayout extends Component {
     });
     clearInterval(this.timer);
   }
-  correctSoFarFunction(isWordCorrect){
+  reportCorrectnessFunction(isWordCorrect){
     this.setState({correctSoFar: isWordCorrect});
   }
 }

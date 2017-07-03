@@ -37,13 +37,21 @@ class TypePane extends Component {
     else if (this.props.countingDown){
       return;
     }
+    // this controls behavior that prevents users from moving
+    // beyond a space when they have a typo. 
+    else if (
+      ! this.checkCorrectness()
+      && this.state.value.includes(" ")
+      && textbox.target.value.length >= this.state.value.length) {
+      return;
+    }
     // using a callback here prevents a race condition when checking the answer
     this.setState({value: textbox.target.value}, () => {
       if (this.wordFinishedCorrectly()){
         this.setState({value: ""});
         this.props.wordCompletionFunction();
       }else{
-        this.checkCurrentWordCorrectSoFar()
+        this.reportCorectness()
       }
     });
 
@@ -75,11 +83,12 @@ class TypePane extends Component {
       return this.state.value === this.props.wordkeeper.words[this.props.wordkeeper.currentWord];
     }
   }
-  checkCurrentWordCorrectSoFar(){
-    const correct = (
-      this.props.wordkeeper.currentWordString.startsWith(this.state.value)
-      || this.state.value === "");
-    this.props.correctSoFarFunction(correct)
+  reportCorectness(){
+    this.props.reportCorrectnessFunction(this.checkCorrectness());
+  }
+  checkCorrectness(){
+    return (this.props.wordkeeper.currentWordString.startsWith(this.state.value)
+    || this.state.value === "");
   }
   getPlaceHolderText(){
     if(this.props.countingDown){
@@ -92,7 +101,7 @@ class TypePane extends Component {
       return "Press Enter to Restart"
     }
     else{
-      return ""
+      return "Type the Passage"
     }
   }
 }
