@@ -93,7 +93,8 @@ class BodyLayout extends Component {
       secondsElapsed: 0,
       wordkeeper: this.state.wordkeeper.newGame(),
       countDownTime: 3,
-      countingDown: false
+      countingDown: false,
+      correctSoFar: true
     });
     clearInterval(this.timer);
   }
