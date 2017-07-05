@@ -25,7 +25,7 @@ class TypePane extends Component {
           />
         </FormGroup>
       </form>
-      <div className="esc-to-skip">esc to skip</div>
+      <div className="esc-to-skip">esc to skip this passage</div>
       </div>
     );
   }
@@ -38,7 +38,7 @@ class TypePane extends Component {
       return;
     }
     // this controls behavior that prevents users from moving
-    // beyond a space when they have a typo. 
+    // beyond a space when they have a typo.
     else if (
       ! this.checkCorrectness()
       && this.state.value.includes(" ")
